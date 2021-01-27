@@ -28,12 +28,14 @@ public class Recipe implements Serializable {
     }
     
     /**
+	 * Returns the amount of chocolate
 	 * @return   Returns the amtChocolate.
 	 */
     public int getAmtChocolate() {
 		return amtChocolate;
 	}
     /**
+	 * Sets the amount of chocolate and it needs to be equal or bigger than 0
 	 * @param amtChocolate   The amtChocolate to setValue.
 	 */
     public void setAmtChocolate(int amtChocolate) {
@@ -42,12 +44,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * Returns the amount of coffee
 	 * @return   Returns the amtCoffee.
 	 */
     public int getAmtCoffee() {
 		return amtCoffee;
 	}
     /**
+	 * Sets the amount of coffee and it needs to be equal or bigger than 0
 	 * @param amtCoffee   The amtCoffee to setValue.
 	 */
     public void setAmtCoffee(int amtCoffee) {
@@ -56,12 +60,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * Returns the amount of milk
 	 * @return   Returns the amtMilk.
 	 */
     public int getAmtMilk() {
 		return amtMilk;
 	}
     /**
+	 * Sets the amount of milk and it needs to be equal or bigger than 0
 	 * @param amtMilk   The amtMilk to setValue.
 	 */
     public void setAmtMilk(int amtMilk) {
@@ -70,12 +76,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * Returns the amount of suger
 	 * @return   Returns the amtSugar.
 	 */
     public int getAmtSugar() {
 		return amtSugar;
 	}
     /**
+	 * Sets the amount of milk and it needs to be equal or bigger than 0
 	 * @param amtSugar   The amtSugar to setValue.
 	 */
     public void setAmtSugar(int amtSugar) {
@@ -84,12 +92,14 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
+	 * Returns the name of the recipe
 	 * @return   Returns the key.
 	 */
     public String getName() {
 		return name;
 	}
     /**
+	 * Set the name of recipe and it needs to be in the menu
 	 * @param name   The key to setValue.
 	 */
     public void setName(String name) {
@@ -98,25 +108,32 @@ public class Recipe implements Serializable {
     	}
 	}
     /**
+	 * Returns the price of the coffee
 	 * @return   Returns the price.
 	 */
     public int getPrice() {
 		return price;
 	}
     /**
+	 * sets the price of the coffee and it needs to be equal to or bigger than 0
 	 * @param price   The price to setValue.
 	 */
     public void setPrice(int price) {
 		if (price >= 0) {
 			this.price = price;
 		} 
-	} 
+	}
+	/**
+	 * if the name of the recipe is in the menu return true otherwise false
+	 */
     public boolean equals(Recipe r) {
         if((this.name).equals(r.getName())) {
             return true;
         }
         return false;
     }
+
+
     public String toString() {
     	return name;
     }
