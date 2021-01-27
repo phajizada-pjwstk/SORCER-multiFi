@@ -29,14 +29,14 @@ public class Recipe implements Serializable {
     
     /**
 	 * Returns the amount of chocolate
-	 * @return   Returns the amtChocolate.
+	 * @return   the amount of chocolate
 	 */
     public int getAmtChocolate() {
 		return amtChocolate;
 	}
     /**
 	 * Sets the amount of chocolate and it needs to be equal or bigger than 0
-	 * @param amtChocolate   The amtChocolate to setValue.
+	 * @param amtChocolate   the amount of chocolate
 	 */
     public void setAmtChocolate(int amtChocolate) {
 		if (amtChocolate >= 0) {
@@ -45,14 +45,14 @@ public class Recipe implements Serializable {
 	}
     /**
 	 * Returns the amount of coffee
-	 * @return   Returns the amtCoffee.
+	 * @return   the amount of coffee
 	 */
     public int getAmtCoffee() {
 		return amtCoffee;
 	}
     /**
 	 * Sets the amount of coffee and it needs to be equal or bigger than 0
-	 * @param amtCoffee   The amtCoffee to setValue.
+	 * @param amtCoffee   the amount of coffee
 	 */
     public void setAmtCoffee(int amtCoffee) {
 		if (amtCoffee >= 0) {
@@ -61,14 +61,14 @@ public class Recipe implements Serializable {
 	}
     /**
 	 * Returns the amount of milk
-	 * @return   Returns the amtMilk.
+	 * @return   the amount of milk
 	 */
     public int getAmtMilk() {
 		return amtMilk;
 	}
     /**
 	 * Sets the amount of milk and it needs to be equal or bigger than 0
-	 * @param amtMilk   The amtMilk to setValue.
+	 * @param amtMilk   the amount of milk
 	 */
     public void setAmtMilk(int amtMilk) {
 		if (amtMilk >= 0) {
@@ -76,15 +76,15 @@ public class Recipe implements Serializable {
 		} 
 	}
     /**
-	 * Returns the amount of suger
-	 * @return   Returns the amtSugar.
+	 * Returns the amount of sugar
+	 * @return   the amount of sugar
 	 */
     public int getAmtSugar() {
 		return amtSugar;
 	}
     /**
 	 * Sets the amount of milk and it needs to be equal or bigger than 0
-	 * @param amtSugar   The amtSugar to setValue.
+	 * @param amtSugar  amount of sugar
 	 */
     public void setAmtSugar(int amtSugar) {
 		if (amtSugar >= 0) {
@@ -93,14 +93,14 @@ public class Recipe implements Serializable {
 	}
     /**
 	 * Returns the name of the recipe
-	 * @return   Returns the key.
+	 * @return   the name of recipe.
 	 */
     public String getName() {
 		return name;
 	}
     /**
 	 * Set the name of recipe and it needs to be in the menu
-	 * @param name   The key to setValue.
+	 * @param name   the name of recipe
 	 */
     public void setName(String name) {
     	if(name != null) {
@@ -109,14 +109,14 @@ public class Recipe implements Serializable {
 	}
     /**
 	 * Returns the price of the coffee
-	 * @return   Returns the price.
+	 * @return   the price of coffee
 	 */
     public int getPrice() {
 		return price;
 	}
     /**
 	 * sets the price of the coffee and it needs to be equal to or bigger than 0
-	 * @param price   The price to setValue.
+	 * @param price   the price of coffee
 	 */
     public void setPrice(int price) {
 		if (price >= 0) {
