@@ -96,6 +96,8 @@ public class CoffeeMakerTest {
 		assertEquals(coffeeMaker.getRecipeForName("mocha").getName(), "mocha");
 	}
 
+
+
 	@Test
 	public void addServiceRecepie() throws Exception {
 		Routine cmt = task(sig("addRecipe", coffeeMaker),
@@ -123,5 +125,70 @@ public class CoffeeMakerTest {
 		assertEquals(coffeeMaker.makeCoffee(espresso, 200), 150);
 	}
 
+	//------------------------------------------------------
+
+	@Test
+	public void addRecipe()throws Exception {
+		coffeeMaker.addRecipe(espresso);
+		Recipe r = coffeeMaker.getRecipeForName(espresso.getName());
+		assertEquals(espresso.getName(),r.getName());
+	}
+
+	@Test
+	public void deleteRecipe()throws Exception {
+		coffeeMaker.addRecipe(espresso);
+		Recipe r = coffeeMaker.getRecipeForName(espresso.getName());
+		assertEquals(coffeeMaker.deleteRecipe(r),true);
+	}
+
+	@Test
+	public void editRecipe()throws Exception {
+		coffeeMaker.addRecipe(espresso);
+		coffeeMaker.editRecipe(espresso,macchiato);
+		Recipe rOld = coffeeMaker.getRecipeForName(espresso.getName());
+		Recipe rNew = coffeeMaker.getRecipeForName(macchiato.getName());
+		assertEquals(rOld,null);
+		assertEquals(rNew.getName(),macchiato.getName());
+	}
+
+	@Test
+	public void addInventory()throws Exception {
+		coffeeMaker.addInventory(10,10,10,10);
+		Inventory inventory = coffeeMaker.checkInventory();
+		assertEquals(inventory.getCoffee(),25);
+		assertEquals(inventory.getChocolate(),25);
+		assertEquals(inventory.getMilk(),25);
+		assertEquals(inventory.getSugar(),25);
+	}
+
+	@Test
+	public void checkInventory()throws Exception {
+		Inventory inventory = coffeeMaker.checkInventory();
+		assertEquals(inventory.getCoffee(),15);
+		assertEquals(inventory.getChocolate(),15);
+		assertEquals(inventory.getMilk(),15);
+		assertEquals(inventory.getSugar(),15);
+	}
+
+	@Test
+	public void purchaseCoffee()throws Exception {
+		coffeeMaker.addRecipe(espresso);
+		int change = coffeeMaker.makeCoffee(espresso,100);
+		Inventory inventory = coffeeMaker.checkInventory();
+
+		assertEquals(50,change);
+		assertEquals(9,inventory.getCoffee());
+		assertEquals(14,inventory.getMilk());
+		assertEquals(14,inventory.getSugar());
+		assertEquals(15,inventory.getChocolate());
+	}
+
+//	espresso = new Recipe();
+//		espresso.setName("espresso");
+//		espresso.setPrice(50);
+//		espresso.setAmtCoffee(6);
+//		espresso.setAmtMilk(1);
+//		espresso.setAmtSugar(1);
+//		espresso.setAmtChocolate(0);
 }
 
