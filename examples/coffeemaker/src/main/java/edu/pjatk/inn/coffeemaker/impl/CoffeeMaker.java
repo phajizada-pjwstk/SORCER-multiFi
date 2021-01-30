@@ -89,7 +89,7 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
         if(r != null) {
 	        for(int i = 0; i < NUM_RECIPES; i++) {
 	            if(r.equals(recipeArray[i])) {
-	                recipeArray[i] = recipeArray[i];  
+					recipeArray[i] = new Recipe();
 	                canDeleteRecipe = true;
 	            }
 	        }
@@ -123,7 +123,7 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
         for(int i = 0; i < NUM_RECIPES; i++) {
         	if(recipeArray[i].getName() != null) {
 	            if(oldRecipe.equals(recipeArray[i])) {
-	            	recipeArray[i] = new Recipe();
+	            	recipeArray[i] = newRecipe;
 	            	if(addRecipe(newRecipe)) {
 	            		canEditRecipe = true;
 	            	} else {
