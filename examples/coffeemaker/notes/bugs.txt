@@ -1,0 +1,4 @@
+CoffeeMaker editRecipe() 125 The bug was that it didn't compare to the oldRecipe, but to the newRecipe that doesn't even exits in the array. so it coundn't find it, so it didn't edit the recipe.
+CoffeeMaker AddInventory() 149 The bug was that it checked, if amount of sugar is bigger than 0, you couldn't add sugar, which should be the opposite. Because you want to add more sugar.
+CoffeeMaker makeCoffee() 185 Bug was that when making coffee it was adding more coffee to the inventory, but not substracting. Which doesn't happen in the real world.
+CoffeeMaker deleteRecipe() 92 When deleting a recipe it was assigning an exiting recipe to itself, which did nothing. To fix it you need to assign it new Recipe()

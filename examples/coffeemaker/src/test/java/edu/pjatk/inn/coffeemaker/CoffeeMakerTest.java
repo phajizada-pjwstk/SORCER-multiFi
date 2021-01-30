@@ -139,14 +139,16 @@ public class CoffeeMakerTest {
 		coffeeMaker.addRecipe(espresso);
 		Recipe r = coffeeMaker.getRecipeForName(espresso.getName());
 		assertEquals(coffeeMaker.deleteRecipe(r),true);
+		assertEquals(null,r);
 	}
 
 	@Test
 	public void editRecipe()throws Exception {
-		coffeeMaker.addRecipe(espresso);
-		coffeeMaker.editRecipe(espresso,macchiato);
-		Recipe rOld = coffeeMaker.getRecipeForName(espresso.getName());
-		Recipe rNew = coffeeMaker.getRecipeForName(macchiato.getName());
+		coffeeMaker.addRecipe(espresso); //coffeeMaker -> espresso
+		coffeeMaker.editRecipe(espresso,macchiato); // coffeeMaker -> macchiato
+		Recipe rOld = coffeeMaker.getRecipeForName(espresso.getName()); //null
+		Recipe rNew = coffeeMaker.getRecipeForName(macchiato.getName()); //macchiato
+
 		assertEquals(rOld,null);
 		assertEquals(rNew.getName(),macchiato.getName());
 	}
@@ -182,6 +184,39 @@ public class CoffeeMakerTest {
 		assertEquals(14,inventory.getSugar());
 		assertEquals(15,inventory.getChocolate());
 	}
+
+	@Test
+	public void deleteRecipes()throws Exception {
+		coffeeMaker.addRecipe(espresso);
+		coffeeMaker.addRecipe(macchiato);
+		coffeeMaker.addRecipe(americano);
+		boolean deletedAll = coffeeMaker.deleteRecipes();
+		Recipe r1 = coffeeMaker.getRecipeForName(espresso.getName());
+		Recipe r2 = coffeeMaker.getRecipeForName(macchiato.getName());
+		Recipe r3 = coffeeMaker.getRecipeForName(americano.getName());
+
+		assertEquals(true, deletedAll);
+		assertEquals(null, r1);
+		assertEquals(null, r2);
+		assertEquals(null, r3);
+	}
+
+	@Test
+	public void addALotOfRecipes()throws Exception {
+		boolean added1 = coffeeMaker.addRecipe(espresso);
+		boolean added2 = coffeeMaker.addRecipe(macchiato);
+		boolean added3 = coffeeMaker.addRecipe(americano);
+		boolean added4 = coffeeMaker.addRecipe(americano);
+		//boolean added4 = coffeeMaker.addRecipe(mocha);
+		//boolean added5 = coffeeMaker.addRecipe(mocha);
+
+		assertEquals(true, added1);
+		assertEquals(true, added2);
+		assertEquals(true, added3);
+		assertEquals(false, added4);
+		//assertEquals(false, added5);
+	}
+
 
 //	espresso = new Recipe();
 //		espresso.setName("espresso");
